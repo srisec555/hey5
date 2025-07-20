@@ -13,77 +13,17 @@ import {
   Server,
   AlertTriangle,
   Zap,
-  Lock
+  Lock,
+  Flame,
+  Bug,
+  Radar,
+  Key,
+  Database
 } from "lucide-react";
 
-const skills = [
-  {
-    category: "SIEM & Analytics",
-    tools: [
-      { name: "Splunk", icon: Activity, color: "text-orange-500" },
-      { name: "Wazuh", icon: Shield, color: "text-blue-500" },
-      { name: "QRadar", icon: Server, color: "text-green-500" },
-      { name: "ELK Stack", icon: Search, color: "text-yellow-500" }
-    ]
-  },
-  {
-    category: "Threat Intelligence",
-    tools: [
-      { name: "MITRE ATT&CK", icon: AlertTriangle, color: "text-red-500" },
-      { name: "VirusTotal", icon: Eye, color: "text-purple-500" },
-      { name: "Any.run", icon: Terminal, color: "text-cyan-500" },
-      { name: "Sigma Rules", icon: FileText, color: "text-indigo-500" }
-    ]
-  },
-  {
-    category: "Network & Forensics",
-    tools: [
-      { name: "Wireshark", icon: Network, color: "text-blue-400" },
-      { name: "Suricata", icon: Shield, color: "text-red-400" },
-      { name: "Volatility", icon: Search, color: "text-green-400" },
-      { name: "Autopsy", icon: Eye, color: "text-purple-400" }
-    ]
-  },
-  {
-    category: "Scripting & Automation",
-    tools: [
-      { name: "Python", icon: Code, color: "text-yellow-400" },
-      { name: "PowerShell", icon: Terminal, color: "text-blue-600" },
-      { name: "Bash", icon: Terminal, color: "text-green-600" },
-      { name: "SOAR", icon: Zap, color: "text-orange-400" }
-    ]
-  }
-];
+// Removed skills array and cards for terminal window redesign
 
-const SkillCard = ({ skill, index }: { skill: any, index: number }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: -50 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group"
-    >
-      <div className="card-cyber group-hover:border-primary/80 group-hover:bg-primary/5">
-        <div className="flex items-center space-x-3 mb-4">
-          <skill.icon className={`w-6 h-6 ${skill.color} group-hover:scale-110 transition-transform duration-300`} />
-          <span className="font-semibold text-lg">{skill.name}</span>
-        </div>
-        <div className="h-2 bg-muted rounded-full overflow-hidden">
-          <motion.div 
-            className="h-full bg-gradient-cyber"
-            initial={{ width: 0 }}
-            animate={isInView ? { width: "85%" } : {}}
-            transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
-          />
-        </div>
-      </div>
-    </motion.div>
-  );
-};
+// Removed SkillCard component for terminal window redesign
 
 const SkillsSection = () => {
   const ref = useRef(null);
@@ -101,36 +41,88 @@ const SkillsSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             My <span className="text-cyber-glow">Cyber Arsenal</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Tools and technologies I use to defend against cyber threats and maintain security posture
-          </p>
         </motion.div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skills.map((category, categoryIndex) => (
-            <motion.div
-              key={category.category}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-              className="space-y-6"
-            >
-              <h3 className="text-xl font-semibold text-primary mb-6 text-center">
-                {category.category}
-              </h3>
-              <div className="space-y-4">
-                {category.tools.map((skill, skillIndex) => (
-                  <SkillCard 
-                    key={skill.name} 
-                    skill={skill} 
-                    index={categoryIndex * 4 + skillIndex} 
-                  />
-                ))}
-              </div>
-            </motion.div>
-          ))}
+        <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+          {/* Blue Team Terminal */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, type: "spring", stiffness: 60 }}
+            className="w-full md:w-1/2 max-w-xl shadow-blue-500/60 shadow-2xl rounded-xl bg-black/90 border border-blue-500/40 p-0 font-mono text-cyan-300 relative"
+          >
+            <div className="flex items-center px-4 py-2 bg-blue-900/80 rounded-t-xl border-b border-blue-500/30">
+              <span className="text-blue-300 font-bold">blue-terminal@defense:~$</span>
+            </div>
+            <div className="p-4 text-sm leading-relaxed">
+              <span className="text-blue-400">$ cat /opt/defense/seim/seimtools.txt | grep -i "siem"</span><br />
+              Splunk<br />
+              QRadar<br />
+              Elastic SIEM<br />
+              Wazuh<br />
+              SentinelOne<br />
+              <br />
+              <span className="text-blue-400">$ grep "EDR" /var/log/edr-tools.log</span><br />
+              ✓ CrowdStrike Falcon<br />
+              ✓ Microsoft Defender ATP<br />
+              ✓ SentinelOne<br />
+              ✓ Carbon Black<br />
+              <br />
+              <span className="text-blue-400">$ ls /etc/firewall/</span><br />
+              iptables.conf<br />
+              pfSense.rules<br />
+              cisco_asa.cfg<br />
+              fortigate.fw<br />
+              <br />
+              <span className="text-blue-400">$ echo "Active IDS Tools:" &amp;&amp; cat ids.list | sort</span><br />
+              Snort<br />
+              Suricata<br />
+              Zeek<br />
+              <br />
+              <span className="text-blue-400">$ cat threat-intel.db | grep -E "OTX|MISP"</span><br />
+              AlienVault OTX<br />
+              MISP<br />
+              AbuseIPDB<br />
+              VirusTotal<br />
+              <br />
+              <span className="text-blue-400">$ touch incident_response_ready &amp;&amp; echo "IR Plan Loaded "</span><br />
+              IR Plan Loaded 
+            </div>
+          </motion.div>
+          {/* Red Team Terminal */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, type: "spring", stiffness: 60, delay: 0.2 }}
+            className="w-full md:w-1/2 max-w-xl shadow-purple-500/60 shadow-2xl rounded-xl bg-black/90 border border-pink-500/40 p-0 font-mono text-pink-400 relative"
+          >
+            <div className="flex items-center px-4 py-2 bg-pink-900/80 rounded-t-xl border-b border-pink-500/30">
+              <span className="text-pink-300 font-bold">red-terminal@offense:~$</span>
+            </div>
+            <div className="p-4 text-sm leading-relaxed">
+              <span className="text-pink-400">$ echo "Reconnaissance Tools:"</span><br />
+              Nmap<br />
+              Shodan<br />
+              <br />
+              <span className="text-pink-400">$ cat brute_force.txt | grep -i "hydra"</span><br />
+              Hydra<br />
+              <br />
+              <span className="text-pink-400">$ echo "Exploitation Frameworks:"</span><br />
+              Metasploit<br />
+              <br />
+              <span className="text-pink-400">$ cat vuln_scan.txt | grep -E "nikto|sqlmap"</span><br />
+              Nikto<br />
+              SQLMap<br />
+              <br />
+              <span className="text-pink-400">$ touch payload_dropper && echo "Payload Dropped!"</span><br />
+              Payload Dropped!<br />
+              <br />
+              <span className="text-pink-400">$ echo "Password Cracking:" && cat john.txt</span><br />
+              John the Ripper<br />
+            </div>
+          </motion.div>
         </div>
-        
         {/* Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
           <motion.div 

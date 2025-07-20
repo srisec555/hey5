@@ -42,6 +42,15 @@ const HeroSection = () => {
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed text-left">
               I am a passionate and dedicated cybersecurity enthusiast with a strong focus on Blue Team operations, currently pursuing a career as a Security Operations Center (SOC) Analyst. With hands-on experience in log analysis, threat detection, SIEM tools, and incident response, I thrive in dynamic environments where I can monitor, analyze, and defend against cyber threats in real time. My goal is to contribute to securing organizations by leveraging my skills in threat hunting, security monitoring, and cyber forensics.
             </p>
+            {/* Works Button */}
+            <div className="mt-6">
+              <a
+                href="#projects"
+                className="inline-block px-6 py-3 rounded-full bg-primary text-white font-semibold shadow-lg hover:bg-primary/80 transition-colors"
+              >
+                Works
+              </a>
+            </div>
           </div>
         </motion.div>
 
