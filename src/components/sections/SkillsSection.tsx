@@ -32,6 +32,10 @@ const SkillsSection = () => {
   return (
     <section ref={ref} className="py-20 relative">
       <div className="container mx-auto px-6">
+        {/* SKILLS Title Centered Above Blue Terminal */}
+        <div className="mb-10">
+          <h2 className="text-4xl font-bold text-center text-primary">SKILLS</h2>
+        </div>
         <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
           {/* Blue Team Linux Terminal */}
           <motion.div

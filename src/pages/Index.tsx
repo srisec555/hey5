@@ -2,6 +2,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import LogAnalysisSection from "@/components/sections/LogAnalysisSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
+import CertificationsSection from "@/components/sections/CertificationsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import FooterSection from "@/components/sections/FooterSection";
 
@@ -26,6 +27,12 @@ const Index = () => {
       {/* Projects Section */}
       <section id="projects">
         <ProjectsSection />
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications">
+        {/* Ensure this import exists at the top: import CertificationsSection from "@/components/sections/CertificationsSection"; */}
+        <CertificationsSection />
       </section>
 
       {/* Contact Section */}

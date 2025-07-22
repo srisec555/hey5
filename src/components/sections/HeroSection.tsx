@@ -43,8 +43,8 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               Hi, I'm{" "}
-              <span className="text-cyber-glow bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
-                Srivenkatesh
+              <span className="text-cyber-glow bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent" style={{ fontFamily: 'Times New Roman, Times, serif', textTransform: 'uppercase' }}>
+                SRIVENKATESH
               </span>{" "}
             </motion.h1>
             <motion.div 
@@ -55,6 +55,10 @@ const HeroSection = () => {
             >
               <Shield className="w-8 h-8 text-blue-400 dark:text-purple-400 animate-pulse-glow" />
               <span className="text-xl md:text-2xl font-semibold">SOC Analyst</span>
+              <span className="flex items-center gap-2 text-xl md:text-2xl font-semibold">
+                <Terminal className="w-8 h-8 text-red-500 animate-pulse-glow" />
+                <span className="text-white">Web Pentester</span>
+              </span>
             </motion.div>
             <div className="mb-8 w-full">
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed text-left">

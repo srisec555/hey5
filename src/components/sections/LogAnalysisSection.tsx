@@ -98,20 +98,6 @@ const LogAnalysisSection = () => {
   return (
     <section ref={ref} className="py-20 relative bg-gradient-to-b from-background to-cyber-darker">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Real-Time <span className="text-cyber-glow">Threat Analysis</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Watch how I detect and respond to security incidents in real-time
-          </p>
-        </motion.div>
-
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -119,31 +105,17 @@ const LogAnalysisSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="bg-card/30 backdrop-blur-sm border border-border/50 rounded-xl p-6 font-mono text-sm"
           >
-            {/* Terminal Header */}
-            <div className="flex items-center justify-between border-b border-border/30 pb-4 mb-6">
+            {/* Terminal Header & Command Line Only */}
+            <div className="flex flex-col gap-2">
               <div className="flex items-center space-x-3">
                 <Terminal className="w-5 h-5 text-primary" />
                 <span className="font-semibold">SOC-WORKSTATION-01</span>
                 <span className="text-muted-foreground">~/security/logs</span>
               </div>
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <div>
+                <span className="text-primary">srivenkatesh@soc-analyst:~$</span>
+                <span className="ml-2">tail -f /var/log/security/events.log | grep -E "(CRITICAL|WARNING)"</span>
               </div>
-            </div>
-
-            {/* Command Line */}
-            <div className="mb-4">
-              <span className="text-primary">srivenkatesh@soc-analyst:~$</span>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.5, delay: 1 }}
-                className="ml-2"
-              >
-                tail -f /var/log/security/events.log | grep -E "(CRITICAL|WARNING)"
-              </motion.span>
             </div>
 
             {/* Log Stream */}
