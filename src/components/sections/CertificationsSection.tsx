@@ -4,26 +4,32 @@ const certifications = [
   {
     title: "Cybersecurity Professional Certificate",
     issuer: "Google",
-    image: "/cert-google.png",
+    image: "/google.png",
     link: "https://www.coursera.org/account/accomplishments/verify/RMGEEI3HRQ4H"
   },
   {
     title: "SIEM Certificate",
     issuer: "LetsDefend",
-    image: "/cert-siem.png",
+    image: "/SIEM.png",
     link: "https://app.letsdefend.io/my-rewards/detail/d06c31bf-86b7-444f-b162-3ac1b950a044"
   },
   {
     title: "Cybersecurity Job Simulation",
     issuer: "Forage (2024)",
-    image: "/cert-forage.png",
+    image: "/cybersecurityanalystjob.jpg",
     link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_AbQp23iiLXAQxLPGk_1746732319444_completion_certificate.pdf"
   },
   {
     title: "Networking Basics",
     issuer: "Cisco",
-    image: "/cert-cisco.png",
+    image: "/cisco.png",
     link: "https://www.netacad.com/certificates?issuanceId=41de76c5-e991-4857-aa04-1151d3c831c7"
+  },
+  {
+    title: "CSA Ecconcil",
+    issuer: "EC-Council",
+    image: "/csa.png",
+    link: "https://drive.google.com/file/d/1Y1rRh6jLQ51tGnizFOI9QRIWTyG4T8sy/view"
   },
 ];
 
@@ -43,7 +49,7 @@ const CertificationsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, delay: idx * 0.1 }}
-              className="relative rounded-2xl overflow-hidden shadow-lg glass-effect border-2 border-border flex flex-col items-center justify-between min-h-[320px] p-6 bg-card"
+              className="relative rounded-2xl overflow-hidden shadow-lg glass-effect border-2 border-border flex flex-col items-center justify-between min-h-[320px] p-6 bg-card animate-float"
             >
               <div className="w-full flex flex-col items-center mb-4">
                 <img src={cert.image} alt={cert.title} className="w-20 h-20 object-contain mb-4 rounded-xl bg-black/40" />

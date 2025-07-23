@@ -1,4 +1,5 @@
 import HeroSection from "@/components/sections/HeroSection";
+import Navbar from "@/components/Navbar";
 import SkillsSection from "@/components/sections/SkillsSection";
 import LogAnalysisSection from "@/components/sections/LogAnalysisSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
@@ -9,6 +10,7 @@ import FooterSection from "@/components/sections/FooterSection";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <Navbar />
       {/* Hero Section */}
       <section id="hero">
         <HeroSection />

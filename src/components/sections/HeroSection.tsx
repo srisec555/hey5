@@ -43,7 +43,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               Hi, I'm{" "}
-              <span className="text-cyber-glow bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent" style={{ fontFamily: 'Times New Roman, Times, serif', textTransform: 'uppercase' }}>
+              <span className="text-cyber-glow bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent highman-font">
                 SRIVENKATESH
               </span>{" "}
             </motion.h1>

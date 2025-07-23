@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'Highman';
+  src: url('/fonts/Highman-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.highman-font {
+  font-family: 'Highman', Arial, sans-serif !important;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 body {
   background-image: url('/background.jpg');
   background-size: cover;
